@@ -1,4 +1,4 @@
-package com.harbourspace.Spring.Boot;
+package com.harbourspace.Spring.Boot.controller;
 
 import com.harbourspace.Spring.Boot.model.Item;
 import org.springframework.web.bind.annotation.*;
