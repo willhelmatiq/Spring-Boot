@@ -2,13 +2,15 @@ package com.harbourspace.Spring.Boot.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MyController {
 
     @GetMapping("/grade/{letter}")
-    public int gradeLetter(@PathVariable String letter) {
+    public int gradeLetter(@PathVariable String letter, @RequestHeader(name = "x-harbour-auth")
+    String headerParam) {
         if (("A".equals(letter))) {
             return 100;
         } else if ("B".equals(letter)) {

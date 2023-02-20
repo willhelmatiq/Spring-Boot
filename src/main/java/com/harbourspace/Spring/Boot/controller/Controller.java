@@ -10,13 +10,15 @@ import java.util.List;
 public class Controller {
 
     @GetMapping("/inbox/items")
-    public List<Item> getItems() {
+    public List<Item> getItems(@RequestHeader(name = "x-harbour-auth")
+                                   String headerParam) {
         return Arrays.asList(new Item(1, "test"), new Item(2, "some status"),
                 new Item(3, "test status"));
     }
 
     @PostMapping("/inbox/items")
-    public Item createItem(@RequestBody Item item) {
+    public Item createItem(@RequestBody Item item, @RequestHeader(name = "x-harbour-auth")
+    String headerParam) {
         return item;
     }
 }

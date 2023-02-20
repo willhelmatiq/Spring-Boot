@@ -1,5 +1,6 @@
 package com.harbourspace.Spring.Boot.controller;
 
+import io.swagger.v3.oas.annotations.headers.Header;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,7 +14,8 @@ public class CalculatorController {
      * @return  sum of a and b
      */
     @GetMapping("sum")
-    public int sum(@RequestParam int a, @RequestParam int b) {
+    public int sum(@RequestParam int a, @RequestParam int b, @RequestHeader(name = "x-harbour-auth")
+                   String headerParam) {
         return a + b;
     }
 
@@ -24,7 +26,8 @@ public class CalculatorController {
      * @return  product of a and b
      */
     @GetMapping("multiply")
-    public int multiply(@RequestParam int a, @RequestParam int b) {
+    public int multiply(@RequestParam int a, @RequestParam int b, @RequestHeader(name = "x-harbour-auth")
+            String headerParam) {
         return a * b;
     }
 }
